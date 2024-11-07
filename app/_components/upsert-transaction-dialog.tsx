@@ -40,7 +40,7 @@ import {
 } from "@prisma/client";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
-// import { upsertTransaction } from "../_actions/upsert-transaction";
+import { upsertTransaction } from "../_actions/upsert-transaction";
 
 interface UpsertTransactionDialogProps {
   isOpen: boolean;
@@ -96,7 +96,7 @@ const UpsertTransactionDialog = ({
 
   const onSubmit = async (data: FormSchema) => {
     try {
-      // await upsertTransaction({ ...data, id: transactionId });
+      await upsertTransaction({ ...data, id: transactionId });
       console.log(data);
       setIsOpen(false);
       form.reset();
